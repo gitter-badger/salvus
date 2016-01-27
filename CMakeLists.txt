@@ -9,10 +9,12 @@ SET(CMAKE_CXX_COMPILER /usr/local/bin/mpicxx)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake-modules")
 
-SET(PETSC_DIR "/opt/petsc")
-find_package(PETSc REQUIRED)
-include_directories(${PETSC_DIR}/include)
+SET(PETSC_DIR $ENV{PETSC_DIR})
+SET(PETSC_ARCH $ENV{PETSC_ARCH})
+find_package(PETSc REQUIRED CXX)
+include_directories("$ENV{PETSC_DIR}/include")
+include_directories("$ENV{PETSC_DIR}/${PETSC_ARCH}/include")
 
 include_directories("./inc")
-add_executable(salvus src/cxx/salvus.cpp)
+add_executable(salvus src/cxx/salvus.cpp src/cxx/Solver.cpp src/cxx/Solver.h src/cxx/Mesh.cpp src/cxx/Mesh.h)
 target_link_libraries(salvus ${PETSC_LIBRARY_SINGLE})
