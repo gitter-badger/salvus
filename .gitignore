@@ -29,3 +29,7 @@
 
 # Development specifics
 .idea
+Debug
+
+# Python stuff
+*.pyc

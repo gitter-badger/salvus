@@ -9,12 +9,31 @@ SET(CMAKE_CXX_COMPILER /usr/local/bin/mpicxx)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake-modules")
 
-SET(PETSC_DIR $ENV{PETSC_DIR})
-SET(PETSC_ARCH $ENV{PETSC_ARCH})
+SET(PETSC_DIR PATH)
 find_package(PETSc REQUIRED CXX)
-include_directories("$ENV{PETSC_DIR}/include")
-include_directories("$ENV{PETSC_DIR}/${PETSC_ARCH}/include")
+include_directories("${PETSC_DIR}/include")
 
-include_directories("./inc")
-add_executable(salvus src/cxx/salvus.cpp src/cxx/Solver.cpp src/cxx/Solver.h src/cxx/Mesh.cpp src/cxx/Mesh.h)
+include_directories(
+        /usr/local/include/eigen3
+        cxx
+        cxx/Element
+        cxx/Element/HyperCube
+        cxx/Element/HyperCube/Square
+        cxx/Element/HyperCube/Square/Autogen
+        cxx/Element/HyperCube/Cube
+        cxx/Element/Simplex
+        cxx/Element/Simplex/Triangle
+        cxx/Element/Simplex/Tetrahedron)
+
+add_executable(salvus
+        src/cxx/Main.cpp
+        src/cxx/Solver.cpp
+        src/cxx/Mesh.cpp
+        src/cxx/Utilities.cpp
+        src/cxx/Options.cpp
+        src/cxx/Element/Element.cpp
+        src/cxx/Element/HyperCube/Square.cpp
+        src/cxx/Element/HyperCube/Square/SquareAcousticOrderFour.cpp
+        src/cxx/Element/HyperCube/Square/Autogen/order4_square.c)
+
 target_link_libraries(salvus ${PETSC_LIBRARY_SINGLE})
