@@ -19,6 +19,7 @@ class Options {
     std::string mExodusMeshFile;
     std::string mElementShape;
     std::string mPhysicsSystem;
+    std::string mExodusModelFile;
 
 public:
 
@@ -32,6 +33,7 @@ public:
     inline std::string ExodusMeshFile() { return mExodusMeshFile; }
     inline std::string MeshType() { return mMeshType; }
     inline std::string ElementShape() { return mElementShape; }
+    inline std::string ExodusModelFile() { return mExodusModelFile; }
 
 
 };

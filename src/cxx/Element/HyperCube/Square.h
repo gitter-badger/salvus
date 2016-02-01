@@ -80,6 +80,7 @@ public:
     // Pure virtual methods.
     virtual void registerFieldVectors() = 0;
     virtual void constructStiffnessMatrix() = 0;
+    virtual void interpolateMaterialProperties() = 0;
 
 };
 

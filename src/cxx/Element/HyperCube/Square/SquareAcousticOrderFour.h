@@ -29,6 +29,7 @@ public:
 
     virtual void registerFieldVectors();
     virtual void constructStiffnessMatrix();
+    virtual void interpolateMaterialProperties();
 
 };
 

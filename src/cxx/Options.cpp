@@ -17,6 +17,10 @@ void Options::setOptions() {
                           &parameter_set);
     if (parameter_set) { mExodusMeshFile = std::string(char_buffer); }
 
+    PetscOptionsGetString(NULL, "--exodus_model_file_name", char_buffer, PETSC_MAX_PATH_LEN,
+                          &parameter_set);
+    if (parameter_set) { mExodusModelFile = std::string(char_buffer); }
+
     PetscOptionsGetString(NULL, "--mesh_type", char_buffer, PETSC_MAX_PATH_LEN,
                           &parameter_set);
     if (parameter_set) { mMeshType = std::string(char_buffer); }

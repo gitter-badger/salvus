@@ -65,3 +65,7 @@ void SquareAcousticOrderFour::constructStiffnessMatrix() {
         }
     }
 }
+
+void SquareAcousticOrderFour::interpolateMaterialProperties() {
+
+}

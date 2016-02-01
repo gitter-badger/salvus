@@ -50,7 +50,7 @@ public:
     virtual void attachVertexCoordinates() = 0;
     virtual void attachIntegrationPoints() = 0;
     virtual void constructStiffnessMatrix() = 0;
-//    virtual void interpolateMaterialProperties() = 0;
+    virtual void interpolateMaterialProperties() = 0;
 
 
     // Integer setattr.

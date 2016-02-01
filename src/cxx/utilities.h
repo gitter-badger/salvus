@@ -8,9 +8,14 @@
 #include <iosfwd>
 #include <string>
 #include <openmpi/ompi/mpi/cxx/mpicxx.h>
+#include <vector>
 
 namespace utilities {
+
     void print_from_root_mpi(const std::string msg);
+
+    std::vector<double> broadcastStdVecFromRoot(std::vector<double> &send_buffer);
+
 }
 
 #endif //SALVUS_UTILITIES_H

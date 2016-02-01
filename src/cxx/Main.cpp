@@ -7,6 +7,7 @@
 #include "Element/Element.h"
 #include "Utilities.h"
 #include "Element/HyperCube/Square/SquareAcousticOrderFour.h"
+#include "Model/ExodusModel.h"
 
 static constexpr char help[] = "Welcome to salvus.";
 
@@ -21,6 +22,10 @@ int main(int argc, char *argv[]) {
     // Get mesh.
     Mesh *mesh = Mesh::factory(options);
     mesh->read(options);
+
+    // Get model.
+    ExodusModel model(options);
+    model.initializeParallel();
 
     // Setup reference element.
     Element *reference_element = Element::factory(options);
